@@ -44,6 +44,7 @@ func NewProjectGenerator(opts Options, userTemplateFs fs.FS) *ProjectGenerator {
 }
 
 func (g *ProjectGenerator) Render(targetDir string) error {
+	//TODO: In future we should support dry run, force overwrite and write log
 	rootFs, err := fs.Sub(g.templateFs, "template")
 	if err != nil {
 		return fmt.Errorf("Failed to create sub FS: %w", err)
